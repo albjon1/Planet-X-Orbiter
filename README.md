@@ -1,2 +1,2 @@
-# Planet-X-Orbiter
-Bot for Planet X
+# Bot for Planet X
+Install required modules -> pip install -r requirements.txt
