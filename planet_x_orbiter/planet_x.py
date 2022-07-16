@@ -49,14 +49,14 @@ async def on_command_error(ctx, error):
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member, *, reason=None):
     await member.kick(reason=reason)
-    await ctx.send(f'{member} has been kicked from Planet X')
+    await ctx.send(f'`{member}` has been kicked from Planet X')
 
 
 @client.command()
 @commands.has_permissions(ban_members=True)
 async def ban(ctx, member: discord.Member, *, reason=None):
     await member.ban(reason=reason)
-    await ctx.send(f'{member} has been banned from Planet X')
+    await ctx.send(f'`{member}` has been banned from Planet X')
 
 
 @client.command()
