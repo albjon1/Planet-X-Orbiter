@@ -66,7 +66,7 @@ async def hello(ctx):
 
 @client.command()
 async def latency(ctx):
-    await ctx.send(f'📡pinged! {round(client.latency * 1000)}ms')
+    await ctx.send(f'📡pinged! `{round(client.latency * 1000)}ms`')
 
 
 @client.command()
