@@ -1,22 +1,18 @@
 ```                                                         [COMMANDS]
                                    <----------------------------------------------------->
 
-$hello - Gives you a nice greeting                                             $clear3 - Clears previous 3 messages
+$hello - Gives you a nice greeting                                              $coinflip - Acts as a coin for decisions
 
-$latency - Returns latency of the Planet X Orbiter                             $clear4 - Clears previous 4 messages
+$latency - Returns latency of the Planet X Orbiter                              $seer [question] - Use with a question you have
 
-$kick [@user] - Kicks user from Planet X                                       $clear5 - Clears previous 5 messages
+$kick [@user] - Kicks user from Planet X                                        $youtube - Currently under maintenance
 
-$ban [@user] - Bans user from Planet X                                         $coinflip - Acts as a coin for decisions
+$ban [@user] - Bans user from Planet X                                          $video [video name] - Searches YouTube for your video
 
-$creator - Returns creator                                                     $seer [question] - Use with a question you have
+$creator - Returns creator                                                      $unmute [@user] - Currently under maintenance
 
-$clear - Clears previous message                                               $youtube - Currently under maintenance
+$clear [amount]- Clears messages equal to amount given                          $mute [@user] - Currently under maintenance
 
-$clear2 - Clears previous 2 messages                                           $twitch - Currently under maintenance
+$profilepic [@user] - Returns user's profile picture                            $twitch - Currently under maintenance
 
-$profilepic [@user] - Returns user's profile picture                           $video [video name] - Searches YouTube for your video
-
-$time [timezone]- Returns current time/date in specified timezone              $mute [@user] - Currently under maintenance
-
-$unmute [@user] - Currently under maintenance```
+$time [timezone]- Returns current time/date in specified timezone```

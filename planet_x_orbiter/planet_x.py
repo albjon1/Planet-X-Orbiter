@@ -88,7 +88,7 @@ async def video(ctx, *, video_query):
 
 
 @client.command()
-async def profilepic(ctx, *,  member: discord.Member = None):
+async def profilepic(ctx, member: discord.Member = None):
     profile_pic_url = member.avatar_url
     await ctx.send(f'Successfully fetched profile picture of -> `{member}`')
     await ctx.send(profile_pic_url)
@@ -128,32 +128,12 @@ async def time(ctx, timezone_arg):
 
 @commands.has_permissions(manage_messages=True)
 @client.command()
-async def clear(ctx, amount=2):
-    await ctx.channel.purge(limit=amount)
-
-
-@commands.has_permissions(manage_messages=True)
-@client.command()
-async def clear2(ctx, amount=3):
-    await ctx.channel.purge(limit=amount)
-
-
-@commands.has_permissions(manage_messages=True)
-@client.command()
-async def clear3(ctx, amount=4):
-    await ctx.channel.purge(limit=amount)
-
-
-@commands.has_permissions(manage_messages=True)
-@client.command()
-async def clear4(ctx, amount=5):
-    await ctx.channel.purge(limit=amount)
-
-
-@commands.has_permissions(manage_messages=True)
-@client.command()
-async def clear5(ctx, amount=6):
-    await ctx.channel.purge(limit=amount)
+async def clear(ctx, amount):
+    amount_int = int(amount) + 1
+    if isinstance(amount_int, int):
+        await ctx.channel.purge(limit=amount_int)
+    else:
+        await ctx.send('Invalid amount. Enter a number')
 
 
 @client.command()
