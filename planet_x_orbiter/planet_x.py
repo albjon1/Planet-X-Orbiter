@@ -138,7 +138,7 @@ async def clear(ctx, amount):
 
 @client.command()
 async def creator(ctx):
-    await ctx.send('I was created by albjon')
+    await ctx.send('I was built by albjon')
 
 
 @client.command()
