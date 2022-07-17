@@ -12,7 +12,7 @@ $ban [@user] - Bans user from Planet X                                         $
 
 $creator - Returns creator                                                     $unmute [@user] - Currently under maintenance
 
-$clear [amount]- Clears messages equal to amount given                         $mute [@user] - Currently under maintenance
+$clear [amount] - Clears messages equal to amount given                        $mute [@user] - Currently under maintenance
 
 $profilepic [@user] - Returns user's profile picture                           $twitch - Currently under maintenance
 
