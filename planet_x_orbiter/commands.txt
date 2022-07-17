@@ -16,4 +16,4 @@ $clear [amount] - Clears messages equal to amount given                        $
 
 $profilepic [@user] - Returns user's profile picture                           $twitch - Currently under maintenance
 
-$time [timezone]- Returns current time/date in specified timezone```
+$time [timezone] - Returns current time/date in specified timezone```
