@@ -152,28 +152,17 @@ async def coinflip(ctx):
 
 @client.command(aliases=['timemachine'])
 async def seer(ctx, *, question):
-    responses = ['It is certain',
-                 'Without a doubt',
-                 'You may rely on it',
-                 'Yes definitely',
-                 'It is decidedly so',
-                 'As I see it, yes',
-                 'Most likely',
-                 'Yes',
-                 'Outlook good',
-                 'Signs point to yes',
-                 'Neutral Answers',
-                 'Reply hazy try again',
-                 'Better not tell you now',
-                 'Ask again later',
-                 'Cannot predict now',
-                 'Concentrate and ask again',
-                 'Negative Answers',
-                 'Don’t count on it',
-                 'Outlook not so good',
-                 'My sources say no',
-                 'Very doubtful',
-                 'My reply is no']
+    responses = ['Yes',
+                 'No',
+                 'Maybe',
+                 'Never',
+                 'Probably',
+                 'Who knows',
+                 'If you work hard',
+                 'Impossible',
+                 "I'm neutral",
+                 "Certainly",
+                 "I'll think about it, try again in a minute"]
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
 
 
