@@ -84,7 +84,7 @@ async def video(ctx, *, video_query):
      "https://www.youtube.com/results?search_query=" + vid_name)
     vid_id = re.findall(r"watch\?v=(\S{11})", url.read().decode())
     final_vid_url = "https://www.youtube.com/watch?v=" + vid_id[0]
-    await ctx.send(final_vid_url)
+    await ctx.send(f'Showing result for -> `{video_query}`\n{final_vid_url}')
 
 
 @client.command()
@@ -137,6 +137,11 @@ async def clear(ctx, amount):
 
 
 @client.command()
+async def nuke(ctx):
+    await ctx.channel.purge()
+
+
+@client.command()
 async def creator(ctx):
     await ctx.send('I was built by albjon')
 
@@ -147,7 +152,7 @@ async def coinflip(ctx):
                  'Heads', 'Tails',
                  'Heads', 'Tails',
                  'Heads', 'Tails']
-    await ctx.send(f'Result -> {random.choice(coin_list)}')
+    await ctx.send(f'Result -> `{random.choice(coin_list)}`')
 
 
 @client.command(aliases=['timemachine'])
@@ -220,6 +225,5 @@ async def commands(ctx):
     with open('commands.txt', 'r') as cmd:
         cmd_file_content = cmd.read()
     await ctx.send(cmd_file_content)
-
 
 client.run(TOKEN)
