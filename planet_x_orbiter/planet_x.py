@@ -6,6 +6,7 @@ import urllib.request
 import re
 import datetime
 import pytz
+import asyncio
 
 with open('token.txt', 'r') as tk:
     hidden_token = tk.read()
@@ -139,7 +140,6 @@ async def clear(ctx, amount):
 @commands.is_owner()
 @client.command()
 async def nuke(ctx):
-    import asyncio
     await ctx.send('☢️Nuke Deployed☢️')
     await asyncio.sleep(1)
     await ctx.send('Nuking in...3')
