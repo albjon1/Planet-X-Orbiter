@@ -140,7 +140,7 @@ async def clear(ctx, amount):
 @client.command()
 async def nuke(ctx):
     import asyncio
-    await ctx.send('Nuke Deployed☢️')
+    await ctx.send('☢️Nuke Deployed☢️')
     await asyncio.sleep(1)
     await ctx.send('Nuking in...3')
     await asyncio.sleep(1)
