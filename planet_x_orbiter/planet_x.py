@@ -136,7 +136,7 @@ async def clear(ctx, amount):
         await ctx.send(f'`{amount}` is an invalid amount. Enter a number')
 
 
-@commands.has_permissions(manage_messages=True)
+@commands.is_owner()
 @client.command()
 async def nuke(ctx):
     import asyncio
