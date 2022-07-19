@@ -139,6 +139,16 @@ async def clear(ctx, amount):
 @commands.has_permissions(manage_messages=True)
 @client.command()
 async def nuke(ctx):
+    import asyncio
+    await ctx.send('Nuke Deployed☢️')
+    await asyncio.sleep(1)
+    await ctx.send('Nuking in...3')
+    await asyncio.sleep(1)
+    await ctx.send('Nuking in...2')
+    await asyncio.sleep(1)
+    await ctx.send('Nuking in...1')
+    await asyncio.sleep(1)
+    await ctx.send('Boom💥')
     await ctx.channel.purge()
 
 
