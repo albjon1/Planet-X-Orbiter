@@ -136,7 +136,7 @@ async def clear(ctx, amount):
     if isinstance(amount_int, int):
         await ctx.channel.purge(limit=amount_int)
     else:
-        await ctx.send(f'`{amount}` is an invalid amount. Enter a integer')
+        await ctx.send(f'`{amount}` is an invalid amount. Enter an integer')
 
 
 @commands.is_owner()
@@ -181,7 +181,7 @@ async def seer(ctx, *, question):
                  'I\'m neutral',
                  'Certainly',
                  'I\'ll think about it, try again in a minute']
-    await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
+    await ctx.send(f'`Question:` {question}\n`Answer:` {random.choice(responses)}')
 
 
 @client.command()
