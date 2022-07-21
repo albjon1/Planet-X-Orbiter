@@ -136,7 +136,7 @@ async def clear(ctx, amount):
     if isinstance(amount_int, int):
         await ctx.channel.purge(limit=amount_int)
     else:
-        await ctx.send(f'`{amount}` is an invalid amount. Enter a number')
+        await ctx.send(f'`{amount}` is an invalid amount. Enter a integer')
 
 
 @commands.is_owner()
