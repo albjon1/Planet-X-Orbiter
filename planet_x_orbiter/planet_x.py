@@ -37,7 +37,7 @@ async def on_command_error(ctx, error):
         await ctx.send('Pass all required arguments. For help try `$commands`')
 
     elif isinstance(error, discord.ext.commands.MissingPermissions):
-        await ctx.send("Nice try, you don't have permissions for this command")
+        await ctx.send('Nice try, you don\'t have permissions for this command')
 
     elif isinstance(error, discord.ext.commands.TooManyArguments):
         await ctx.send('You gave too many arguments. For help try `$commands`')
@@ -84,9 +84,9 @@ async def search(ctx):
 async def video(ctx, *, video_query):
     vid_name = video_query.replace(' ', '+')
     url = urllib.request.urlopen(
-     "https://www.youtube.com/results?search_query=" + vid_name)
+     'https://www.youtube.com/results?search_query=' + vid_name)
     vid_id = re.findall(r"watch\?v=(\S{11})", url.read().decode())
-    final_vid_url = "https://www.youtube.com/watch?v=" + vid_id[0]
+    final_vid_url = 'https://www.youtube.com/watch?v=' + vid_id[0]
     await ctx.send(f'Showing result for -> `{video_query}`\n{final_vid_url}')
 
 
@@ -178,15 +178,15 @@ async def seer(ctx, *, question):
                  'Who knows',
                  'If you work hard',
                  'Impossible',
-                 "I'm neutral",
-                 "Certainly",
-                 "I'll think about it, try again in a minute"]
+                 'I\'m neutral',
+                 'Certainly',
+                 'I\'ll think about it, try again in a minute']
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
 
 
 @client.command()
 async def youtube(ctx):
-    await ctx.send("Currently under maintenance")
+    await ctx.send('Currently under maintenance')
     # embed = discord.Embed(
     #     title='Cronos',
     #     description='Subscribe to my YouTube channel! '
@@ -210,7 +210,7 @@ async def youtube(ctx):
 
 @client.command()
 async def twitch(ctx):
-    await ctx.send("Currently under maintenance")
+    await ctx.send('Currently under maintenance')
     # embed = discord.Embed(
     #     title='Cronos',
     #     description='Follow my Twitch channel! '
