@@ -7,6 +7,7 @@ import re
 import datetime
 import pytz
 import asyncio
+import typing
 
 with open('token.txt', 'r') as tk:
     hidden_token = tk.read()
@@ -139,19 +140,21 @@ async def clear(ctx, amount: typing.Union[int, str]):
         await ctx.send(f'`{amount}` is an invalid amount')
 
 
-@commands.is_owner()
 @client.command()
 async def nuke(ctx):
-    await ctx.send('☢️Nuke Deployed☢️')
-    await asyncio.sleep(1)
-    await ctx.send('Nuking in...3')
-    await asyncio.sleep(1)
-    await ctx.send('Nuking in...2')
-    await asyncio.sleep(1)
-    await ctx.send('Nuking in...1')
-    await asyncio.sleep(1)
-    await ctx.send('Boom💥')
-    await ctx.channel.purge()
+    if ctx.author == ctx.guild.owner:
+        await ctx.send('☢️Nuke Deployed☢️')
+        await asyncio.sleep(1)
+        await ctx.send('Nuking in...3')
+        await asyncio.sleep(1)
+        await ctx.send('Nuking in...2')
+        await asyncio.sleep(1)
+        await ctx.send('Nuking in...1')
+        await asyncio.sleep(1)
+        await ctx.send('Boom💥')
+        await ctx.channel.purge()
+    else:
+        await ctx.send('You haven\'t been given authority to use Planet X\'s nuclear arsenal')
 
 
 @client.command()
