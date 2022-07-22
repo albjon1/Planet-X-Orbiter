@@ -136,7 +136,7 @@ async def clear(ctx, amount: typing.Union[int, str]):
         amount_int = int(amount) + 1
         await ctx.channel.purge(limit=amount_int)
     elif isinstance(amount, str):
-        await ctx.send(f'`{amount}` is an invalid amount. Enter an integer')
+        await ctx.send(f'`{amount}` is an invalid amount')
 
 
 @commands.is_owner()
