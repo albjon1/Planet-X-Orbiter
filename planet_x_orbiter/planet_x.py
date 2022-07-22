@@ -131,11 +131,11 @@ async def time(ctx, timezone_arg):
 
 @commands.has_permissions(manage_messages=True)
 @client.command()
-async def clear(ctx, amount):
-    amount_int = int(amount) + 1
-    if isinstance(amount_int, int):
+async def clear(ctx, amount: typing.Union[int, str]):
+    if isinstance(amount, int):
+        amount_int = int(amount) + 1
         await ctx.channel.purge(limit=amount_int)
-    else:
+    elif isinstance(amount, str):
         await ctx.send(f'`{amount}` is an invalid amount. Enter an integer')
 
 
