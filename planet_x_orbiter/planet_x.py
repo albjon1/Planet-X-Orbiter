@@ -11,7 +11,7 @@ import typing
 
 with open('token.txt', 'r') as tk:
     hidden_token = tk.read()
-TOKEN = hidden_token
+token = hidden_token
 client = commands.Bot(command_prefix='$')
 
 
@@ -88,13 +88,13 @@ async def video(ctx, *, video_query):
      'https://www.youtube.com/results?search_query=' + vid_name)
     vid_id = re.findall(r"watch\?v=(\S{11})", url.read().decode())
     final_vid_url = 'https://www.youtube.com/watch?v=' + vid_id[0]
-    await ctx.send(f'Showing result for -> `{video_query}`\n{final_vid_url}')
+    await ctx.send(f'Showing result for --> `{video_query}`\n{final_vid_url}')
 
 
 @client.command()
 async def profilepic(ctx, member: discord.Member = None):
     profile_pic_url = member.avatar_url
-    await ctx.send(f'Successfully fetched profile picture of -> `{member}`')
+    await ctx.send(f'Successfully fetched profile picture of --> `{member}`')
     await ctx.send(profile_pic_url)
 
 
@@ -124,8 +124,8 @@ async def time(ctx, timezone_arg):
         date_time = datetime.datetime.now(py_tz)
         f_date = date_time.strftime('%d/%m/%Y')  # date/month/year
         f_time = date_time.strftime('%H:%M:%S')  # Hour:Minute:Second
-        await ctx.send(f'Current Date for `{timezone_arg}` -> `{f_date}`')
-        await ctx.send(f'Current Time for `{timezone_arg}` -> `{f_time}`')
+        await ctx.send(f'Current Date for `{timezone_arg}` --> `{f_date}`')
+        await ctx.send(f'Current Time for `{timezone_arg}` --> `{f_time}`')
     else:
         await ctx.send('Invalid time zone, for help visit `https://en.wikipedia.org/wiki/List_of_tz_database_time_zones`')
 
@@ -168,10 +168,10 @@ async def coinflip(ctx):
                  'Heads', 'Tails',
                  'Heads', 'Tails',
                  'Heads', 'Tails']
-    await ctx.send(f'Result -> `{random.choice(coin_list)}`')
+    await ctx.send(f'Result --> `{random.choice(coin_list)}`')
 
 
-@client.command(aliases=['timemachine'])
+@client.command()
 async def seer(ctx, *, question):
     responses = ['Yes',
                  'No',
@@ -185,6 +185,19 @@ async def seer(ctx, *, question):
                  'Certainly',
                  'I\'ll think about it, try again in a minute']
     await ctx.send(f'`Question:` {question}\n`Answer:` {random.choice(responses)}')
+
+
+@client.command()
+async def rolldie(ctx, rollcount):
+    rollcount = int(rollcount)
+    if rollcount == 1:
+        await ctx.send(f'Rolling {rollcount} time(s)...\nResult --> `{random.randint(1, 6)}`')
+    elif rollcount == 2:
+        await ctx.send(f'Rolling {rollcount} time(s)...\nResult --> `{random.randint(1, 6)}` - `{random.randint(1, 6)}`')
+    elif rollcount == 3:
+        await ctx.send(f'Rolling {rollcount} time(s)...\nResult --> `{random.randint(1, 6)}` - `{random.randint(1, 6)}` - `{random.randint(1, 6)}`')
+    else:
+        await ctx.send('Invalid roll amount [1-3]')
 
 
 @client.command()
@@ -242,4 +255,4 @@ async def commands(ctx):
         cmd_file_content = cmd.read()
     await ctx.send(cmd_file_content)
 
-client.run(TOKEN)
+client.run(token)
