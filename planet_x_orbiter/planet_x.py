@@ -158,6 +158,46 @@ async def nuke(ctx):
 
 
 @client.command()
+async def serverinfo(ctx):
+    server_name = ctx.guild.name
+    server_id = ctx.guild.id
+    member_count = ctx.guild.member_count
+    server_icon = ctx.guild.icon_url
+
+    server_embed = discord.Embed(
+     title=f'{server_name} Information',
+     color=discord.Color.from_rgb(0, 0, 0))
+
+    server_embed.set_thumbnail(url=server_icon)
+    server_embed.add_field(name='Planet Name', value=server_name, inline=True)
+    server_embed.add_field(name='Server ID', value=server_id, inline=True)
+    server_embed.add_field(name='Orbital Period', value='100 days', inline=True)
+    server_embed.add_field(name='Population', value=member_count, inline=True)
+    server_embed.add_field(name='Owner', value='cronos', inline=True)
+    await ctx.send(embed=server_embed)
+
+
+@client.command()
+async def userinfo(ctx, member: discord.Member = None):
+    author = ctx.message.author
+    name = author.name
+    user_embed = discord.Embed(
+     title=f'{member}',
+     color=discord.Color.from_rgb(0, 0, 0),
+     timestamp=ctx.message.created_at)
+
+    user_embed.set_author(name='User Information')
+    user_embed.set_thumbnail(url=member.avatar_url)
+    user_embed.set_footer(text=f'Used by {name}')
+
+    user_embed.add_field(name='ID:', value=member.id, inline=True)
+    user_embed.add_field(name='Display Name:', value=member.display_name, inline=True)
+    user_embed.add_field(name='Account Created:', value=member.created_at.strftime('%d/%m/%Y %H:%M:%S'), inline=True)
+    user_embed.add_field(name='Planet X Arrival:', value=member.joined_at.strftime('%d/%m/%Y %H:%M:%S'), inline=True)
+    await ctx.send(embed=user_embed)
+
+
+@client.command()
 async def creator(ctx):
     await ctx.send('I was built by albjon')
 
@@ -191,11 +231,11 @@ async def seer(ctx, *, question):
 async def rolldie(ctx, rollcount):
     rollcount = int(rollcount)
     if rollcount == 1:
-        await ctx.send(f'Rolling {rollcount} time(s)...\nResult --> `{random.randint(1, 6)}`')
+        await ctx.send(f'Rolling {rollcount} time(s)...\nResult: `{random.randint(1, 6)}`')
     elif rollcount == 2:
-        await ctx.send(f'Rolling {rollcount} time(s)...\nResult --> `{random.randint(1, 6)}` - `{random.randint(1, 6)}`')
+        await ctx.send(f'Rolling {rollcount} time(s)...\nResult: `{random.randint(1, 6)}` - `{random.randint(1, 6)}`')
     elif rollcount == 3:
-        await ctx.send(f'Rolling {rollcount} time(s)...\nResult --> `{random.randint(1, 6)}` - `{random.randint(1, 6)}` - `{random.randint(1, 6)}`')
+        await ctx.send(f'Rolling {rollcount} time(s)...\nResult: `{random.randint(1, 6)}` - `{random.randint(1, 6)}` - `{random.randint(1, 6)}`')
     else:
         await ctx.send('Invalid roll amount [1-3]')
 
