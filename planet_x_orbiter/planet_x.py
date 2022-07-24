@@ -65,7 +65,7 @@ async def ban(ctx, member: discord.Member, *, reason=None):
 async def hello(ctx):
     user = ctx.message.author
     user_name = user.name
-    await ctx.send(f'Hello there {user_name}👋')
+    await ctx.send(f'Hello, {user_name}👋')
 
 
 @client.command()
