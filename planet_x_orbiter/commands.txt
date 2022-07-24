@@ -18,4 +18,6 @@ $profilepic [@user] - Returns user's profile picture                           $
 
 $time [timezone] - Returns current time/date in specified timezone             $nuke - Clears all messages in a channel
 
-$rolldie [1-3] - Rolls a die equal to amount given```
+$rolldie [1-3] - Rolls a die equal to amount given                             $serverinfo - Returns Planet X's information
+
+$userinfo [@user] - Returns information about specified user```
