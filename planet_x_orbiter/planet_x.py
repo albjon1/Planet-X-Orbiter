@@ -159,21 +159,26 @@ async def nuke(ctx):
 
 @client.command()
 async def serverinfo(ctx):
+    global author, name
+    author = ctx.message.author
+    name = author.name
     server_name = ctx.guild.name
     server_id = ctx.guild.id
     member_count = ctx.guild.member_count
     server_icon = ctx.guild.icon_url
 
     server_embed = discord.Embed(
-     title=f'{server_name} Information',
-     color=discord.Color.from_rgb(0, 0, 0))
+     title='Server Information',
+     color=discord.Color.from_rgb(0, 0, 0),
+     timestamp=ctx.message.created_at)
 
     server_embed.set_thumbnail(url=server_icon)
-    server_embed.add_field(name='Planet Name', value=server_name, inline=True)
-    server_embed.add_field(name='Server ID', value=server_id, inline=True)
-    server_embed.add_field(name='Orbital Period', value='100 days', inline=True)
-    server_embed.add_field(name='Population', value=member_count, inline=True)
-    server_embed.add_field(name='Owner', value='cronos', inline=True)
+    server_embed.set_footer(text=f'Used by {name}')
+    server_embed.add_field(name='Server Name:', value=server_name, inline=False)
+    server_embed.add_field(name='Owner:', value='cronos', inline=False)
+    server_embed.add_field(name='Server ID:', value=server_id, inline=False)
+    server_embed.add_field(name='Orbital Period:', value='450 days', inline=False)
+    server_embed.add_field(name='Population:', value=member_count, inline=False)
     await ctx.send(embed=server_embed)
 
 
@@ -181,19 +186,19 @@ async def serverinfo(ctx):
 async def userinfo(ctx, member: discord.Member = None):
     author = ctx.message.author
     name = author.name
+
     user_embed = discord.Embed(
-     title=f'{member}',
+     title='User Information',
      color=discord.Color.from_rgb(0, 0, 0),
      timestamp=ctx.message.created_at)
 
-    user_embed.set_author(name='User Information')
     user_embed.set_thumbnail(url=member.avatar_url)
     user_embed.set_footer(text=f'Used by {name}')
-
-    user_embed.add_field(name='ID:', value=member.id, inline=True)
-    user_embed.add_field(name='Display Name:', value=member.display_name, inline=True)
-    user_embed.add_field(name='Account Created:', value=member.created_at.strftime('%d/%m/%Y %H:%M:%S'), inline=True)
-    user_embed.add_field(name='Planet X Arrival:', value=member.joined_at.strftime('%d/%m/%Y %H:%M:%S'), inline=True)
+    user_embed.add_field(name='User:', value=member, inline=False)
+    user_embed.add_field(name='Display Name:', value=member.display_name, inline=False)
+    user_embed.add_field(name='ID:', value=member.id, inline=False)
+    user_embed.add_field(name='Account Created:', value=member.created_at.strftime('%d/%m/%Y @ %H:%M:%S'), inline=False)
+    user_embed.add_field(name='Planet X Arrival:', value=member.joined_at.strftime('%d/%m/%Y @ %H:%M:%S'), inline=False)
     await ctx.send(embed=user_embed)
 
 
