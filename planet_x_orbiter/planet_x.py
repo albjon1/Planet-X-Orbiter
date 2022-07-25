@@ -235,6 +235,9 @@ async def seer(ctx, *, question):
 @client.command()
 async def rolldie(ctx, rollcount):
     rollcount = int(rollcount)
+    # if rollcount >= 1 and rollcount <= 10:
+    # for i in range(rollcount):
+    #     await ctx.send(f'Rolling {rollcount} time(s)\n Result: `{random.randint(1, 6)}`')
     if rollcount == 1:
         await ctx.send(f'Rolling {rollcount} time(s)...\nResult: `{random.randint(1, 6)}`')
     elif rollcount == 2:
