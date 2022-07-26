@@ -184,9 +184,6 @@ async def serverinfo(ctx):
 
 @client.command()
 async def userinfo(ctx, member: discord.Member = None):
-    author = ctx.message.author
-    name = author.name
-
     user_embed = discord.Embed(
      title='User Information',
      color=discord.Color.from_rgb(0, 0, 0),
