@@ -1,7 +1,6 @@
 import discord
 import random
 from discord.ext import commands
-# import webbrowser
 import urllib.request
 import re
 import datetime
@@ -71,14 +70,6 @@ async def hello(ctx):
 @client.command()
 async def latency(ctx):
     await ctx.send(f'📡pinged! `{round(client.latency * 1000)}ms`')
-
-
-@client.command()
-async def search(ctx):
-    await ctx.send('Currently under maintenance')
-# async def search(ctx, search_query):
-#     await ctx.send(f'Redirecting to {search_query}')
-#     await ctx.send(webbrowser.open_new_tab(search_query), delete_after=0.1)
 
 
 @client.command()
