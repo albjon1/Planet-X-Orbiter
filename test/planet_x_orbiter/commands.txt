@@ -1,0 +1,23 @@
+```yaml
+                                                         [COMMANDS]
+                                   <----------------------------------------------------->
+
+$hello - Gives you a nice greeting                                             $coinflip - Acts as a coin for decisions
+
+$latency - Returns latency of the Planet X Orbiter                             $seer [question] - Use with a question you have
+
+$kick [@user] - Kicks user from Planet X                                       $youtube - Currently under maintenance
+
+$ban [@user] - Bans user from Planet X                                         $video [video name] - Searches YouTube for your video
+
+$creator - Returns creator                                                     $unmute [@user] - Currently under maintenance
+
+$clear [amount] - Clears messages equal to amount given                        $mute [@user] - Currently under maintenance
+
+$profilepic [@user] - Returns user's profile picture                           $twitch - Currently under maintenance
+
+$time [timezone] - Returns current time/date in specified timezone             $nuke - Clears all messages in a channel
+
+$rolldie [1-3] - Rolls a die equal to amount given                             $serverinfo - Returns Planet X's information
+
+$userinfo [@user] - Returns information about specified user```
